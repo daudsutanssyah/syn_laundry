@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syn_laundry/pages/beranda_page.dart';
 import 'package:syn_laundry/pages/register_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
 
@@ -88,19 +89,24 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   height: 37,
                 ),
-                Container(
-                  height: 50,
-                  width: double.infinity,
-                  margin: EdgeInsets.all(10),
-                  child: TextButton(
-                    onPressed: null,
-                    style: TextButton.styleFrom(
-                        backgroundColor: Color(0xFF4ABF92),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15))),
-                    child: Text(
-                      "Masuk",
-                      style: TextStyle(color: Colors.white),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => BerandaPage()));
+                  },
+                  child: Container(
+                    height: 50,
+                    width: double.infinity,
+                    margin: EdgeInsets.all(10),
+                    child: TextButton(
+                      onPressed: null,
+                      style: TextButton.styleFrom(
+                          backgroundColor: Color(0xFF4ABF92),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15))),
+                      child: Text(
+                        "Masuk",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),

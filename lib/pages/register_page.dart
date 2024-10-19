@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syn_laundry/pages/beranda_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -9,8 +10,14 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true, //umtuk menempatkan title di tengah
-        title: Text("Persiapkan Akunmu"),
-        leading: Image.asset('assets/ic-back.png'),
+        title: Text("Persiapkan Akunmu", style: primaryTextStyle.copyWith(
+          fontSize: 24,
+          fontWeight: FontWeight.w500
+        ),),
+         leading: Container(
+            margin: EdgeInsets.only(left: 10),
+            child: Image.asset('assets/ic-back.png')
+            ),
       ),
       body: ListView(
         padding: EdgeInsets.only(top: 35),
@@ -121,19 +128,24 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 170,),
-                Container(
-                  height: 50,
-                  width: double.infinity,
-                  margin: EdgeInsets.all(10),
-                  child: TextButton(
-                    onPressed: null,
-                    style: TextButton.styleFrom(
-                        backgroundColor: Color(0xFF4ABF92),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15))),
-                    child: Text(
-                      "Daftar",
-                      style: TextStyle(color: Colors.white),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => BerandaPage()));
+                  },
+                  child: Container(
+                    height: 50,
+                    width: double.infinity,
+                    margin: EdgeInsets.all(10),
+                    child: TextButton(
+                      onPressed: null,
+                      style: TextButton.styleFrom(
+                          backgroundColor: Color(0xFF4ABF92),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15))),
+                      child: Text(
+                        "Daftar",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),

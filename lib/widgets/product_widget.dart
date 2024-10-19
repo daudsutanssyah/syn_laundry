@@ -20,9 +20,9 @@ class ProductWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(nama, style: whiteTextStyle.copyWith(
-                  fontSize: 24,
+                  fontSize: 20,
                   fontWeight: FontWeight.w500,
-                  overflow: TextOverflow.visible,
+                  overflow: TextOverflow.ellipsis,
                 ), maxLines: 1, ),
                 Text(harga, style: whiteTextStyle.copyWith(
                   fontSize: 16,
