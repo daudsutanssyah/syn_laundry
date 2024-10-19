@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syn_laundry/pages/beranda_page.dart';
 import 'package:syn_laundry/pages/login_page.dart';
+import 'package:syn_laundry/pages/pesanan1_page.dart';
 import 'package:syn_laundry/pages/register_page.dart';
 import 'package:syn_laundry/pages/splash_page.dart';
 import 'package:syn_laundry/pages/sukses_page.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashPage(),
+      home: Pesanan1Page(),
     );
   }
 }
