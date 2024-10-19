@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syn_laundry/pages/register_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
 
 class LoginPage extends StatelessWidget {
@@ -113,7 +114,14 @@ class LoginPage extends StatelessWidget {
             children: [
               Text("Belum punya akun?", style: secondaryTextStyle.copyWith(fontSize: 16)),
               SizedBox(width: 2,),
-              Text("Daftar", style: greenTextStyle.copyWith(fontSize: 16)),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, 
+                  MaterialPageRoute(builder: (context) => RegisterPage()));
+                },
+                child: Text("Daftar", style: greenTextStyle.copyWith(fontSize: 16)
+                ),
+                ),
             ],
           )
         ],
