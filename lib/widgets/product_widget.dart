@@ -10,7 +10,7 @@ class ProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160,
+      width: 150,
       child: Stack(
         children: [
           Image.asset(imgUrl, width: 150, height: 136,),
