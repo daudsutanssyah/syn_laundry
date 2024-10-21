@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syn_laundry/pages/notifikasi_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
 import 'package:syn_laundry/widgets/product_widget.dart';
 
@@ -30,7 +31,11 @@ class BerandaPage extends StatelessWidget {
                 ),
                 Spacer(), //mengambil sisa space
                 //sisi kanan
-                Icon(Icons.notifications),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => NotifikasiPage()));
+                  },
+                  child: Icon(Icons.notifications)),
               ],
             ),
           ),
@@ -108,7 +113,7 @@ class BerandaPage extends StatelessWidget {
                 ProductWidget(
                   imgUrl: "assets/img-laundry.png",
                   nama: "Laundry Reguler",
-                  harga: "IDR 5000 / Kg",
+                  harga: "IDR 6000 / Kg",
                 ),
               ],
             ),
