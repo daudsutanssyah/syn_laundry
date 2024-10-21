@@ -25,48 +25,70 @@ class ProfilPage extends StatelessWidget {
                 style: greenTextStyle.copyWith(),
               ),
             ),
-            Text("Username", style: primaryTextStyle.copyWith(
-              fontWeight: FontWeight.w500
-            ),),
-            SizedBox(height: 14,),
-             Text("AhmadFulan123", style: primaryTextStyle.copyWith(
-              fontWeight: FontWeight.w500
-            ),),
-            SizedBox(height: 14,),
-             Text("Email", style: primaryTextStyle.copyWith(
-              fontWeight: FontWeight.w500
-            ),),
-            SizedBox(height: 14,),
-             Text("ahmadfulan@email.com", style: primaryTextStyle.copyWith(
-              fontWeight: FontWeight.w500
-            ),),
-            SizedBox(height: 14,),
-             Text("Nomor Telepon", style: primaryTextStyle.copyWith(
-              fontWeight: FontWeight.w500
-            ),),
-            SizedBox(height: 14,),
-             Text("08123456789", style: primaryTextStyle.copyWith(
-              fontWeight: FontWeight.w500
-            ),),
-
-            SizedBox(height: 39,),
+            Text(
+              "Username",
+              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: 14,
+            ),
+            Text(
+              "AhmadFulan123",
+              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: 14,
+            ),
+            Text(
+              "Email",
+              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: 14,
+            ),
+            Text(
+              "ahmadfulan@email.com",
+              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: 14,
+            ),
+            Text(
+              "Nomor Telepon",
+              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: 14,
+            ),
+            Text(
+              "08123456789",
+              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: 39,
+            ),
             Row(
               children: [
-                Text("Reset Password", style: primaryTextStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500
-                ),),
+                Text(
+                  "Reset Password",
+                  style: primaryTextStyle.copyWith(
+                      fontSize: 16, fontWeight: FontWeight.w500),
+                ),
                 Spacer(),
-                Icon(Icons.arrow_forward_ios, size: 24,)
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 20,
+                )
               ],
             ),
-
-            SizedBox(height: 39,),
-
-            Text("Logout", style: redTextStyle.copyWith(
-              fontSize: 16,
-              fontWeight: FontWeight.w500
-            ),)
+            SizedBox(
+              height: 39,
+            ),
+            Text(
+              "Logout",
+              style: redTextStyle.copyWith(
+                  fontSize: 16, fontWeight: FontWeight.w500),
+            )
           ],
         ),
       ),

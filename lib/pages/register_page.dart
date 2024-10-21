@@ -10,14 +10,14 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true, //umtuk menempatkan title di tengah
-        title: Text("Persiapkan Akunmu", style: primaryTextStyle.copyWith(
-          fontSize: 24,
-          fontWeight: FontWeight.w500
-        ),),
-         leading: Container(
+        title: Text(
+          "Persiapkan Akunmu",
+          style: primaryTextStyle.copyWith(
+              fontSize: 24, fontWeight: FontWeight.w500),
+        ),
+        leading: Container(
             margin: EdgeInsets.only(left: 10),
-            child: Image.asset('assets/ic-back.png')
-            ),
+            child: Image.asset('assets/ic-back.png')),
       ),
       body: ListView(
         padding: EdgeInsets.only(top: 35),
@@ -127,10 +127,13 @@ class RegisterPage extends StatelessWidget {
                     hintStyle: secondaryTextStyle,
                   ),
                 ),
-                SizedBox(height: 170,),
+                SizedBox(
+                  height: 170,
+                ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => BerandaPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BerandaPage()));
                   },
                   child: Container(
                     height: 50,
@@ -150,10 +153,9 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 Center(
-                  child: Text("dengan mendaftar, anda setuju dengan syarat dan ketentuan aplikasi ",
-                  style: secondaryTextStyle.copyWith(
-                    fontSize: 10
-                  ),
+                  child: Text(
+                    "dengan mendaftar, anda setuju dengan syarat dan ketentuan aplikasi ",
+                    style: secondaryTextStyle.copyWith(fontSize: 10),
                   ),
                 )
               ],

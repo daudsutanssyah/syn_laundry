@@ -6,7 +6,6 @@ import 'package:syn_laundry/themes/themes.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,18 +36,15 @@ class LoginPage extends StatelessWidget {
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(
-                        color: greyColor,
-                      )
-                    ),
-                    
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        )),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(
-                        color: greyColor,
-                      )
-                    ),
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        )),
                     hintText: "Masukkan Username",
                     hintStyle: secondaryTextStyle,
                   ),
@@ -60,20 +56,20 @@ class LoginPage extends StatelessWidget {
                   obscureText: true,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    suffix: Image.asset('assets/ic-eye.png', width: 16,),
+                    suffix: Image.asset(
+                      'assets/ic-eye.png',
+                      width: 16,
+                    ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(
-                        color: greyColor,
-                      )
-                    ),
-                    
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        )),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(
-                        color: greyColor,
-                      )
-                    ),
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        )),
                     hintText: "Masukkan Password",
                     hintStyle: secondaryTextStyle,
                   ),
@@ -82,16 +78,20 @@ class LoginPage extends StatelessWidget {
                   height: 37,
                 ),
                 Align(
-                  alignment: Alignment.bottomRight,
-                  child: Text("Lupa Password?", style: greenTextStyle.copyWith(
-                    fontSize: 16,
-                  ),)),
+                    alignment: Alignment.bottomRight,
+                    child: Text(
+                      "Lupa Password?",
+                      style: greenTextStyle.copyWith(
+                        fontSize: 16,
+                      ),
+                    )),
                 SizedBox(
                   height: 37,
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => BerandaPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BerandaPage()));
                   },
                   child: Container(
                     height: 50,
@@ -118,16 +118,19 @@ class LoginPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Belum punya akun?", style: secondaryTextStyle.copyWith(fontSize: 16)),
-              SizedBox(width: 2,),
+              Text("Belum punya akun?",
+                  style: secondaryTextStyle.copyWith(fontSize: 16)),
+              SizedBox(
+                width: 2,
+              ),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, 
-                  MaterialPageRoute(builder: (context) => RegisterPage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => RegisterPage()));
                 },
-                child: Text("Daftar", style: greenTextStyle.copyWith(fontSize: 16)
-                ),
-                ),
+                child: Text("Daftar",
+                    style: greenTextStyle.copyWith(fontSize: 16)),
+              ),
             ],
           )
         ],

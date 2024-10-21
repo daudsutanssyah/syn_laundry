@@ -8,31 +8,43 @@ class SuksesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset("assets/img-sukses.png", width: 177, height: 177,),
-          Column(
-            children: [
-              Text("Hore! Pesanan Telah", style: primaryTextStyle.copyWith(
-                fontSize: 24,
-                fontWeight: FontWeight.w500
-              ),),
-              Text("Terkonfirmasi", style: primaryTextStyle.copyWith(
-                fontSize: 24,
-                fontWeight: FontWeight.w500
-              ),),
-              SizedBox(height: 30,),
-              Text("Tim kami akan segera menjemput ", style: secondaryTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.w500
-              ),),
-              Text("cucianmu mohon ditunggu ya! ", style: secondaryTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.w500
-              ),),
-              SizedBox(height: 30,),
-              Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              "assets/img-sukses.png",
+              width: 177,
+              height: 177,
+            ),
+            Column(
+              children: [
+                Text(
+                  "Hore! Pesanan Telah",
+                  style: primaryTextStyle.copyWith(
+                      fontSize: 24, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  "Terkonfirmasi",
+                  style: primaryTextStyle.copyWith(
+                      fontSize: 24, fontWeight: FontWeight.w500),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  "Tim kami akan segera menjemput ",
+                  style: secondaryTextStyle.copyWith(
+                      fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  "cucianmu mohon ditunggu ya! ",
+                  style: secondaryTextStyle.copyWith(
+                      fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Container(
                   height: 50,
                   width: double.infinity,
                   margin: EdgeInsets.only(left: 20, right: 20),
@@ -44,17 +56,15 @@ class SuksesPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(15))),
                     child: Text(
                       "Cek Pesanan",
-                      style: 
-                      TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
               ],
-          ),
+            ),
           ],
+        ),
       ),
-      
-    ),
     );
   }
 }

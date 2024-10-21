@@ -14,12 +14,11 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   int selectecIndex = 0;
 
-  static List <Widget> screenList = [
-     BerandaPage(),
-     ListOrderPage(),
-     ProfilPage(),
+  static List<Widget> screenList = [
+    BerandaPage(),
+    ListOrderPage(),
+    ProfilPage(),
   ];
-
 
   void onItemTapped(int index) {
     setState(() {
@@ -31,33 +30,22 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem> [
+        items: <BottomNavigationBarItem>[
           // index 0
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Beranda"
-            ),
-            //index 1
-          BottomNavigationBarItem(
-            icon: Icon(Icons.task),
-            label: "Pesanan"
-            ),
-            //index 2
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profil"
-            ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Beranda"),
+          //index 1
+          BottomNavigationBarItem(icon: Icon(Icons.task), label: "Pesanan"),
+          //index 2
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profil"),
         ],
-
         currentIndex: selectecIndex,
         selectedItemColor: primaryColor,
         unselectedItemColor: greyColor,
         onTap: onItemTapped,
         backgroundColor: whiteColor,
         type: BottomNavigationBarType.fixed,
-        ),
-
-        body: screenList.elementAt(selectecIndex),
+      ),
+      body: screenList.elementAt(selectecIndex),
     );
   }
 }

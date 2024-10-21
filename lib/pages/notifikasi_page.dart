@@ -92,7 +92,7 @@ class NotifikasiPage extends StatelessWidget {
                       Text(
                         "Kamu bisa cek kelengkapan cucianmu!",
                         style: primaryTextStyle.copyWith(
-                           fontWeight: FontWeight.w500),
+                            fontWeight: FontWeight.w500),
                       )
                     ],
                   ),
