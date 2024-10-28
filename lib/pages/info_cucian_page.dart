@@ -10,7 +10,6 @@ class InfoCucianPage extends StatefulWidget {
 }
 
 class _InfoCucianPageState extends State<InfoCucianPage> {
-
   TextEditingController dateInput = TextEditingController();
 
   String metodeBayar = "Tunai";
@@ -73,14 +72,21 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
                     )),
               ),
             ),
-            Text("*Tim kami akan menimbang kembali berat cucian", style: secondaryTextStyle,),
-            SizedBox(height: 12,),
+            Text(
+              "*Tim kami akan menimbang kembali berat cucian",
+              style: secondaryTextStyle,
+            ),
+            SizedBox(
+              height: 12,
+            ),
             Text(
               "Waktu Pengambilan",
               style: primaryTextStyle.copyWith(
                   fontSize: 16, fontWeight: FontWeight.w500),
             ),
-            SizedBox(height: 6,),
+            SizedBox(
+              height: 6,
+            ),
             TextFormField(
               obscureText: true,
               keyboardType: TextInputType.datetime,
@@ -102,19 +108,22 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
               readOnly: true,
               onTap: () async {
                 DateTime? pickedDate = await showDatePicker(
-                  context: context, 
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime(1950), 
-                  lastDate:  DateTime(2100));
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(1950),
+                    lastDate: DateTime(2100));
                 if (pickedDate != null) {
-                  String formattedDate = DateFormat('dd-mm-yyyy').format(pickedDate);
+                  String formattedDate =
+                      DateFormat('dd-mm-yyyy').format(pickedDate);
                   setState(() {
                     dateInput.text = formattedDate;
                   });
                 } else {}
               },
             ),
-            SizedBox(height: 12,),
+            SizedBox(
+              height: 12,
+            ),
             Text(
               "Pilih Paket",
               style: primaryTextStyle.copyWith(
@@ -135,28 +144,34 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Reguler", style: primaryTextStyle.copyWith(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),),
-                        Text("(Lebih Hemat)", style: secondaryTextStyle.copyWith(
-                          fontStyle: FontStyle.italic
-                        ),)
+                        Text(
+                          "Reguler",
+                          style: primaryTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        Text(
+                          "(Lebih Hemat)",
+                          style: secondaryTextStyle.copyWith(
+                              fontStyle: FontStyle.italic),
+                        )
                       ],
                     ),
                   ),
                   Spacer(),
                   Text("IDR 5k"),
                   Checkbox(
-                    value: false, 
-                  onChanged: (value) {
-                    setState(() {
-                    });
-                  }),
+                      value: false,
+                      onChanged: (value) {
+                        setState(() {});
+                      }),
                 ],
               ),
-            ), 
-            SizedBox(height: 35,),
+            ),
+            SizedBox(
+              height: 35,
+            ),
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: blackColor),
@@ -172,34 +187,40 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Express", style: primaryTextStyle.copyWith(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),),
-                        Text("(langsung jemput tanpa antri)", style: secondaryTextStyle.copyWith(
-                          fontStyle: FontStyle.italic
-                        ),)
+                        Text(
+                          "Express",
+                          style: primaryTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        Text(
+                          "(langsung jemput tanpa antri)",
+                          style: secondaryTextStyle.copyWith(
+                              fontStyle: FontStyle.italic),
+                        )
                       ],
                     ),
                   ),
                   Spacer(),
                   Text("IDR 10k"),
                   Checkbox(
-                    value: false, 
-                  onChanged: (value) {
-                    setState(() {
-                    });
-                  }),
+                      value: false,
+                      onChanged: (value) {
+                        setState(() {});
+                      }),
                 ],
               ),
-            ), 
-            SizedBox(height: 16,),
-              Text("Metode Pembayaran ", style: primaryTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.w500
-              ),),
-
-              DropdownButtonFormField<String>(
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            Text(
+              "Metode Pembayaran ",
+              style: primaryTextStyle.copyWith(
+                  fontSize: 16, fontWeight: FontWeight.w500),
+            ),
+            DropdownButtonFormField<String>(
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
@@ -228,33 +249,33 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
                     metodeBayar = newValue!;
                   });
                 }),
-                Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: Text("*Bayar setelah beres", style: secondaryTextStyle.copyWith(
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w500
-                  ),),
-                )
-
+            Container(
+              margin: EdgeInsets.only(left: 10),
+              child: Text(
+                "*Bayar setelah beres",
+                style: secondaryTextStyle.copyWith(
+                    fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
+              ),
+            )
           ],
         ),
       ),
       bottomNavigationBar: Container(
-          margin: EdgeInsets.only(left: 20, right: 20, bottom: 24),
-          width: double.infinity,
-          height: 50,
-          child: TextButton(
-                      onPressed: null,
-                      style: TextButton.styleFrom(
-                          backgroundColor: Color(0xFF4ABF92),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
-                      child: Text(
-                        "Lanjut",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
+        margin: EdgeInsets.only(left: 20, right: 20, bottom: 24),
+        width: double.infinity,
+        height: 50,
+        child: TextButton(
+          onPressed: null,
+          style: TextButton.styleFrom(
+              backgroundColor: Color(0xFF4ABF92),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15))),
+          child: Text(
+            "Lanjut",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
+      ),
     );
   }
 }
