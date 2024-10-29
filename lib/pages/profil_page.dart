@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:syn_laundry/pages/edit_profil_page.dart';
+import 'package:syn_laundry/pages/reset_password_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
 
 class ProfilPage extends StatelessWidget {
@@ -20,11 +22,17 @@ class ProfilPage extends StatelessWidget {
           children: [
             Align(
               alignment: Alignment.bottomRight,
-              child: Text(
-                "Edit Profil",
-                style: greenTextStyle.copyWith(),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilPage()));
+                },
+                child: Text(
+                  "Edit Profil",
+                  style: greenTextStyle.copyWith(),
+                ),
               ),
             ),
+            SizedBox(height: 10,),
             Text(
               "Username",
               style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
@@ -34,10 +42,10 @@ class ProfilPage extends StatelessWidget {
             ),
             Text(
               "AhmadFulan123",
-              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
+              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w700, fontSize: 16),
             ),
             SizedBox(
-              height: 14,
+              height: 24,
             ),
             Text(
               "Email",
@@ -48,10 +56,10 @@ class ProfilPage extends StatelessWidget {
             ),
             Text(
               "ahmadfulan@email.com",
-              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
+              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w700, fontSize: 16),
             ),
             SizedBox(
-              height: 14,
+              height: 24,
             ),
             Text(
               "Nomor Telepon",
@@ -62,17 +70,22 @@ class ProfilPage extends StatelessWidget {
             ),
             Text(
               "08123456789",
-              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
+              style: primaryTextStyle.copyWith(fontWeight: FontWeight.w700, fontSize: 16),
             ),
             SizedBox(
               height: 39,
             ),
             Row(
               children: [
-                Text(
-                  "Reset Password",
-                  style: primaryTextStyle.copyWith(
-                      fontSize: 16, fontWeight: FontWeight.w500),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPasswordPage()));
+                  },
+                  child: Text(
+                    "Reset Password",
+                    style: primaryTextStyle.copyWith(
+                        fontSize: 16, fontWeight: FontWeight.w700),
+                  ),
                 ),
                 Spacer(),
                 Icon(
@@ -85,9 +98,9 @@ class ProfilPage extends StatelessWidget {
               height: 39,
             ),
             Text(
-              "Logout",
+              "Log Out →",
               style: redTextStyle.copyWith(
-                  fontSize: 16, fontWeight: FontWeight.w500),
+                  fontSize: 16, fontWeight: FontWeight.w700),
             )
           ],
         ),
