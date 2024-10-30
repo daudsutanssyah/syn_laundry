@@ -37,6 +37,7 @@ class _LandingPageState extends State<LandingPage> {
           BottomNavigationBarItem(icon: Icon(Icons.task), label: "Pesanan"),
           //index 2
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profil"),
+          
         ],
         currentIndex: selectecIndex,
         selectedItemColor: primaryColor,

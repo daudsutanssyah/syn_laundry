@@ -21,11 +21,11 @@ class BerandaPage extends StatelessWidget {
                   children: [
                     Text("Selamat Datang!",
                         style: primaryTextStyle.copyWith(
-                            fontSize: 18, fontWeight: FontWeight.w500)),
+                            fontSize: 18, fontWeight: FontWeight.w600)),
                     Text(
                       "Mau dibantu apa hari ini?",
                       style: secondaryTextStyle.copyWith(
-                          fontSize: 16, fontWeight: FontWeight.w500),
+                          fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
