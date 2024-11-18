@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:syn_laundry/controllers/auth_controllers.dart';
 import 'package:syn_laundry/pages/landing_page.dart';
 import 'package:syn_laundry/pages/register_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final authC = Get.put(AuthControllers());
+
     return Scaffold(
       body: ListView(
         children: [
@@ -33,6 +37,7 @@ class LoginPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextFormField(
+                  controller: authC.email,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
@@ -53,6 +58,7 @@ class LoginPage extends StatelessWidget {
                   height: 37,
                 ),
                 TextFormField(
+                  controller: authC.password,
                   obscureText: true,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
@@ -125,8 +131,7 @@ class LoginPage extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => RegisterPage()));
+                  authC.login();
                 },
                 child: Text("Daftar",
                     style: greenTextStyle.copyWith(fontSize: 16)),
