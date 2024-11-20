@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart';
+import 'package:sp_util/sp_util.dart';
+import 'package:syn_laundry/controllers/auth_controllers.dart';
 import 'package:syn_laundry/pages/edit_profil_page.dart';
 import 'package:syn_laundry/pages/reset_password_page.dart';
 import 'package:syn_laundry/pages/splash_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
 
 class ProfilPage extends StatelessWidget {
-  const ProfilPage({super.key});
+   ProfilPage({super.key});
+
+  final authC = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +54,7 @@ class ProfilPage extends StatelessWidget {
               height: 14,
             ),
             Text(
-              "Prabowo",
+              SpUtil.getString("name").toString(),
               style: primaryTextStyle.copyWith(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
@@ -67,7 +73,7 @@ class ProfilPage extends StatelessWidget {
               height: 14,
             ),
             Text(
-              "bowo@gmail.com",
+              SpUtil.getString("email").toString(),
               style: primaryTextStyle.copyWith(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
@@ -86,7 +92,7 @@ class ProfilPage extends StatelessWidget {
               height: 14,
             ),
             Text(
-              "081234567890",
+              SpUtil.getString("telepon").toString(),
               style: primaryTextStyle.copyWith(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
@@ -167,7 +173,8 @@ class ProfilPage extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => SplashPage() ));
+                                authC.logout();
+                                // Navigator.push(context, MaterialPageRoute(builder: (context) => SplashPage() ));
                               },
                               child: Center(
                                 child: Text("Yakin, keluar", style: redTextStyle.copyWith(
