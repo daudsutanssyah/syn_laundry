@@ -1,8 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:syn_laundry/controllers/auth_controllers.dart';
-import 'package:syn_laundry/pages/beranda_page.dart';
-import 'package:syn_laundry/pages/landing_page.dart';
 import 'package:syn_laundry/pages/register_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
 import 'package:get/get.dart';
@@ -91,10 +88,10 @@ class _LoginPageState extends State<LoginPage> {
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                           suffixIcon: InkWell(
-                            onTap: () {
-                              authC.isObsecure();
-                            },
-                            child: Image.asset('assets/ic-eye.png')),
+                              onTap: () {
+                                authC.isObsecure();
+                              },
+                              child: Image.asset('assets/ic-eye.png')),
                           hintText: "Masukkan Password",
                           hintStyle: secondaryTextStyle,
                           enabledBorder: OutlineInputBorder(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:syn_laundry/controllers/auth_controllers.dart';
-import 'package:syn_laundry/pages/beranda_page.dart';
+import 'package:syn_laundry/pages/login_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
+import 'package:get/get.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -12,47 +12,33 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-
+  // panggil controller AuthController
   final authC = Get.put(AuthController());
 
+  // membuat key Validation untuk form
   final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // baris 1 : AppBar
       appBar: AppBar(
-        centerTitle: true, //umtuk menempatkan title di tengah
+        centerTitle: true, //untuk menempatkan title di tengah2
         title: Text(
           "Persiapkan Akunmu",
           style: primaryTextStyle.copyWith(
-              fontSize: 24, fontWeight: FontWeight.w500),
+            fontSize: 24,
+            fontWeight: FontWeight.w500,
+          ),
         ),
         leading: Container(
             margin: EdgeInsets.only(left: 10),
             child: Image.asset('assets/ic-back.png')),
       ),
       body: ListView(
-        padding: EdgeInsets.only(top: 35),
         children: [
-          Center(
-            child: Column(
-              children: [
-                Text(
-                  "Lengkapi semua informasi untuk",
-                  style: secondaryTextStyle.copyWith(
-                    fontSize: 20,
-                  ),
-                ),
-                Text(
-                  "membuat akun di syKlin.",
-                  style: secondaryTextStyle.copyWith(
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // baris 2 : KOLOM INPUT
           Container(
-
             margin: EdgeInsets.only(top: 60, left: 20, right: 20),
             child: Form(
               key: formKey,
@@ -67,85 +53,127 @@ class _RegisterPageState extends State<RegisterPage> {
                       return null;
                     },
                     controller: authC.name,
-                    keyboardType: TextInputType.name,
+                    keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(
-                            color: greyColor,
-                          )),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(
-                            color: greyColor,
-                          )),
                       hintText: "Masukkan Username",
                       hintStyle: secondaryTextStyle,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 35,
+                    height: 37,
                   ),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Nomor tidak boleh kosong";
+                        return "Nomer Telepon boleh kosong";
                       }
-                       return null;
+                      return null;
                     },
                     controller: authC.telepon,
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(
-                            color: greyColor,
-                          )),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(
-                            color: greyColor,
-                          )),
-                      hintText: "Masukkan Nomor Telepon",
+                      hintText: "Masukkan Nomer Telepon",
                       hintStyle: secondaryTextStyle,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 35,
+                    height: 37,
                   ),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "Email tidak boleh kosong";
                       }
-                       return null;
+                      return null;
                     },
                     controller: authC.email,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(
-                            color: greyColor,
-                          )),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(
-                            color: greyColor,
-                          )),
                       hintText: "Masukkan Email",
                       hintStyle: secondaryTextStyle,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 35,
+                    height: 37,
                   ),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "Password tidak boleh kosong";
                       }
-                       return null;
+                      return null;
                     },
                     controller: authC.password,
                     obscureText: true,
@@ -153,56 +181,104 @@ class _RegisterPageState extends State<RegisterPage> {
                     decoration: InputDecoration(
                       suffix: Image.asset(
                         'assets/ic-eye.png',
-                        width: 16,
+                        width: 20,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(
-                            color: greyColor,
-                          )),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(
-                            color: greyColor,
-                          )),
                       hintText: "Masukkan Password",
                       hintStyle: secondaryTextStyle,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: greyColor,
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 170,
+                    height: 10,
                   ),
-                  Container(
-                    height: 50,
-                    width: double.infinity,
-                    margin: EdgeInsets.all(10),
-                    child: TextButton(
-                      onPressed: (){
-                        if (formKey.currentState!.validate()) {
-                          formKey.currentState!.save();
-                          authC.register();
-                        }
-                      },
-                      style: TextButton.styleFrom(
-                          backgroundColor: Color(0xFF4ABF92),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
-                      child: Text(
-                        "Daftar",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
+                  SizedBox(
+                    height: 37,
                   ),
-                  Center(
-                    child: Text(
-                      "dengan mendaftar, anda setuju dengan syarat dan ketentuan aplikasi ",
-                      style: secondaryTextStyle.copyWith(fontSize: 10),
-                    ),
-                  )
+                  // Spacer(),
+                  Obx(() => Container(
+                        height: 50,
+                        width: double.infinity,
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            backgroundColor: Color(0xFF4ABF92),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              formKey.currentState!.save();
+                              authC.register();
+                            }
+                          },
+                          child: authC.loading == true
+                              ? CircularProgressIndicator(
+                                  color: whiteColor,
+                                )
+                              : Text(
+                                  "Daftar",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                        ),
+                      )),
                 ],
               ),
             ),
-          )
+          ),
+
+          SizedBox(
+            height: 20,
+          ),
+          // baris 4 : BELUM PUNYA AKUN?
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Sudah punya akun?",
+                style: secondaryTextStyle.copyWith(fontSize: 16),
+              ),
+              SizedBox(
+                width: 2,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginPage()));
+                },
+                child: Text(
+                  "Login",
+                  style: greenTextStyle.copyWith(
+                    fontSize: 16,
+                  ),
+                ),
+              )
+            ],
+          ),
         ],
       ),
     );

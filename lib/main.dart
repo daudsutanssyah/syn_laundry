@@ -15,8 +15,11 @@ import 'package:syn_laundry/pages/reset_password_page.dart';
 import 'package:syn_laundry/pages/splash_page.dart';
 import 'package:syn_laundry/pages/sukses_page.dart';
 import 'package:get/get.dart';
+import 'package:sp_util/sp_util.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await SpUtil.getInstance();
   runApp(const MyApp());
 }
 

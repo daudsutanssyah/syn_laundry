@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 // get package untuk state management, widget dan fungsi
 import 'package:get/get.dart';
@@ -86,6 +85,8 @@ class AuthController extends GetxController {
     // variabel link end point
     var url = Uri.parse(Config().urlRegister);
     try {
+      loading.value = true;
+
       // response
       final response = await http.post(url, body: {
         "name": name.text,
@@ -101,6 +102,10 @@ class AuthController extends GetxController {
       Map<String, dynamic> errorValidation = responseDecode["data"];
       // jika berhasil
       if (response.statusCode == 200) {
+        SpUtil.putInt("id_user", responseDecode["data"]["id"]);
+        SpUtil.putString("name", responseDecode["data"]["name"]);
+        SpUtil.putString("email", responseDecode["data"]["email"]);
+        SpUtil.putString("telepon", responseDecode["data"]["telepon"]);
         Get.offAll(LandingPage());
       } else {
         // jika gagal

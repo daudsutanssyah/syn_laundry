@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:syn_laundry/models/product_model.dart';
 import 'package:syn_laundry/pages/notifikasi_page.dart';
+import 'package:syn_laundry/services/product_services.dart';
 import 'package:syn_laundry/themes/themes.dart';
 import 'package:syn_laundry/widgets/product_widget.dart';
 
@@ -110,31 +112,34 @@ class BerandaPage extends StatelessWidget {
             margin: EdgeInsets.only(left: 20, right: 20, top: 18),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  ProductWidget(
-                    imgUrl: "assets/img-laundry.png",
-                    nama: "Laundry",
-                    harga: "IDR 5000 / Kg",
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  ProductWidget(
-                    imgUrl: "assets/img-setrika.png",
-                    nama: "Laundry Plus Setrika",
-                    harga: "IDR 8000 / Kg",
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  ProductWidget(
-                    imgUrl: "assets/img-laundry.png",
-                    nama: "Laundry Reguler",
-                    harga: "IDR 6000 / Kg",
-                  ),
-                ],
-              ),
+              child: FutureBuilder<List<ProductModel>>(
+                  future: ProductServices.getProductList(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return CircularProgressIndicator(
+                        color: primaryColor,
+                      );
+                    } else if (snapshot.hasData) {
+                      return Row(
+                        children: [
+                          ...snapshot.data!.map((dataProduct) {
+                            // mengambil index dari perulangan map
+                            var index = snapshot.data!.indexOf(dataProduct);
+                            return Container(
+                              margin: EdgeInsets.only(
+                                left: index > 0 ? 20 : 0
+                              ),
+                              child: ProductWidget(
+                                productModel: dataProduct,
+                              ),
+                            );
+                          })
+                        ],
+                      );
+                    } else {
+                      return Container();
+                    }
+                  }),
             ),
           ),
 
