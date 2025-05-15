@@ -1,3 +1,6 @@
+
+// ignore_for_file: file_names
+
 import 'package:syn_laundry/config/config.dart';
 
 class ProductModel {
@@ -34,7 +37,8 @@ class ProductModel {
         merkId: json["merk_id"],
         namaProduct: json["nama_product"],
         harga: json["harga"],
-        gambar: Config.urlMain + 'storage/' + json["gambar"],
+        // ignore: prefer_interpolation_to_compose_strings
+        gambar: '${Config.urlMain}storage/' + json["gambar"],
         spesifikasi: json["spesifikasi"],
         rating: json["rating"],
         status: json["status"],

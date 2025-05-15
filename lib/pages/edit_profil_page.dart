@@ -13,7 +13,7 @@ class EditProfilPage extends StatelessWidget {
           style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
         ),
         leading: Container(
-          margin: EdgeInsets.only(left: 10),
+          margin: const EdgeInsets.only(left: 10),
           child: Image.asset(
             "assets/ic-back.png",
             width: 36,
@@ -22,7 +22,7 @@ class EditProfilPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.only(top: 25, left: 20, right: 20),
+        margin: const EdgeInsets.only(top: 25, left: 20, right: 20),
         child: ListView(
           children: [
             TextFormField(
@@ -42,7 +42,7 @@ class EditProfilPage extends StatelessWidget {
                     hintStyle: secondaryTextStyle,
               ),
             ),
-            SizedBox(height: 25,),
+            const SizedBox(height: 25,),
             TextFormField(
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
@@ -60,7 +60,7 @@ class EditProfilPage extends StatelessWidget {
                     hintStyle: secondaryTextStyle,
               ),
             ),
-            SizedBox(height: 25,),
+            const SizedBox(height: 25,),
             TextFormField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
@@ -82,16 +82,16 @@ class EditProfilPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 24),
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 24),
         width: double.infinity,
         height: 50,
         child: TextButton(
           onPressed: null,
           style: TextButton.styleFrom(
-              backgroundColor: Color(0xFF4ABF92),
+              backgroundColor: const Color(0xFF4ABF92),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15))),
-          child: Text(
+          child: const Text(
             "Simpan Perubahan",
             style: TextStyle(color: Colors.white),
           ),

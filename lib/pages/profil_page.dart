@@ -25,7 +25,7 @@ class ProfilPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.only(left: 20, right: 20),
+        margin: const EdgeInsets.only(left: 20, right: 20),
         child: ListView(
           children: [
             Align(
@@ -35,7 +35,7 @@ class ProfilPage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => EditProfilPage()));
+                          builder: (context) => const EditProfilPage()));
                 },
                 child: Text(
                   "Edit Profil",
@@ -43,7 +43,7 @@ class ProfilPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 41,
             ),
             Text(
@@ -52,7 +52,7 @@ class ProfilPage extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
             Text(
@@ -62,7 +62,7 @@ class ProfilPage extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
             Text(
@@ -71,7 +71,7 @@ class ProfilPage extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
             Text(
@@ -81,7 +81,7 @@ class ProfilPage extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
             Text(
@@ -90,7 +90,7 @@ class ProfilPage extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
             Text(
@@ -100,7 +100,7 @@ class ProfilPage extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 39,
             ),
             GestureDetector(
@@ -108,7 +108,7 @@ class ProfilPage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ResetPasswordPage()));
+                        builder: (context) => const ResetPasswordPage()));
               },
               child: Row(
                 children: [
@@ -119,15 +119,15 @@ class ProfilPage extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  Spacer(),
-                  Icon(
+                  const Spacer(),
+                  const Icon(
                     Icons.arrow_forward_ios,
                     size: 24,
                   ),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 39,
             ),
             GestureDetector(
@@ -152,13 +152,13 @@ class ProfilPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(
+                                  margin: const EdgeInsets.only(
                                       bottom: 24, left: 20, right: 20),
                                   width: double.infinity,
                                   height: 50,
                                   child: TextButton(
                                     style: TextButton.styleFrom(
-                                      backgroundColor: Color(0xFF4ABF92),
+                                      backgroundColor: const Color(0xFF4ABF92),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(15),
                                       ),
@@ -166,7 +166,7 @@ class ProfilPage extends StatelessWidget {
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       "Batalkan",
                                       style: TextStyle(
                                         color: Colors.white,

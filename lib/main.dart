@@ -1,19 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'package:syn_laundry/pages/beranda_page.dart';
-import 'package:syn_laundry/pages/edit_profil_page.dart';
-import 'package:syn_laundry/pages/info_cucian_page.dart';
-import 'package:syn_laundry/pages/info_pesanan.dart';
-import 'package:syn_laundry/pages/konfirmasi_page.dart';
-import 'package:syn_laundry/pages/landing_page.dart';
-import 'package:syn_laundry/pages/list_order_page.dart';
-import 'package:syn_laundry/pages/login_page.dart';
-import 'package:syn_laundry/pages/notifikasi_page.dart';
-import 'package:syn_laundry/pages/pesanan1_page.dart';
-import 'package:syn_laundry/pages/profil_page.dart';
-import 'package:syn_laundry/pages/register_page.dart';
-import 'package:syn_laundry/pages/reset_password_page.dart';
+
 import 'package:syn_laundry/pages/splash_page.dart';
-import 'package:syn_laundry/pages/sukses_page.dart';
 import 'package:get/get.dart';
 import 'package:sp_util/sp_util.dart';
 

@@ -32,14 +32,14 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
         leading: Container(
-            margin: EdgeInsets.only(left: 10),
+            margin: const EdgeInsets.only(left: 10),
             child: Image.asset('assets/ic-back.png')),
       ),
       body: ListView(
         children: [
           // baris 2 : KOLOM INPUT
           Container(
-            margin: EdgeInsets.only(top: 60, left: 20, right: 20),
+            margin: const EdgeInsets.only(top: 60, left: 20, right: 20),
             child: Form(
               key: formKey,
               child: Column(
@@ -83,7 +83,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 37,
                   ),
                   TextFormField(
@@ -124,7 +124,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 37,
                   ),
                   TextFormField(
@@ -165,7 +165,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 37,
                   ),
                   TextFormField(
@@ -211,19 +211,19 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 37,
                   ),
                   // Spacer(),
-                  Obx(() => Container(
+                  Obx(() => SizedBox(
                         height: 50,
                         width: double.infinity,
                         child: TextButton(
                           style: TextButton.styleFrom(
-                            backgroundColor: Color(0xFF4ABF92),
+                            backgroundColor: const Color(0xFF4ABF92),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
@@ -238,7 +238,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               ? CircularProgressIndicator(
                                   color: whiteColor,
                                 )
-                              : Text(
+                              : const Text(
                                   "Daftar",
                                   style: TextStyle(
                                     color: Colors.white,
@@ -251,7 +251,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           // baris 4 : BELUM PUNYA AKUN?
@@ -262,13 +262,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 "Sudah punya akun?",
                 style: secondaryTextStyle.copyWith(fontSize: 16),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 2,
               ),
               InkWell(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage()));
+                      MaterialPageRoute(builder: (context) => const LoginPage()));
                 },
                 child: Text(
                   "Login",

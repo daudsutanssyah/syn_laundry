@@ -24,12 +24,12 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void movingPage() {
-    Timer(Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 2), () {
       if (SpUtil.getString("email") == "") {
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => LoginPage()));
+            context, MaterialPageRoute(builder: (context) => const LoginPage()));
       } else {
-        Get.offAll(LandingPage());
+        Get.offAll(const LandingPage());
       }
     });
   }

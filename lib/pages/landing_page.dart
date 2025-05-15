@@ -15,8 +15,8 @@ class _LandingPageState extends State<LandingPage> {
   int selectecIndex = 0;
 
   static List<Widget> screenList = [
-    BerandaPage(),
-    ListOrderPage(),
+    const BerandaPage(),
+    const ListOrderPage(),
     ProfilPage(),
   ];
 
@@ -35,9 +35,10 @@ class _LandingPageState extends State<LandingPage> {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
+                // ignore: deprecated_member_use
                 color: blackColor.withOpacity(0.3),
                 blurRadius: 15.0,
-                offset: Offset(0.0, 2.0),
+                offset: const Offset(0.0, 2.0),
               )
             ]
           ),

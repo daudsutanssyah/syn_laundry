@@ -1,28 +1,41 @@
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:syn_laundry/themes/themes.dart';
+import 'package:syn_laundry/models/Product_model.dart';
+import '../themes/themes.dart';
 
 class InfoCucianPage extends StatefulWidget {
-  const InfoCucianPage({super.key});
+  const InfoCucianPage({super.key,  this.dataProduct});
+
+  final ProductModel? dataProduct;
 
   @override
   State<InfoCucianPage> createState() => _InfoCucianPageState();
 }
 
 class _InfoCucianPageState extends State<InfoCucianPage> {
+  // variabel untuk menampung inputan pd kolom
   TextEditingController dateInput = TextEditingController();
 
+  // siapkan variabel utk menampung nilai default pada pilihan dropdown (untuk DropDown)
   String metodeBayar = "Tunai";
+  int productId= 0;
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    dateInput.text = "";
+    void initState() {
+    
+    super.initState();                 
+    dateInput.text = ""; //set the initial value of text field
+    // saat pertama kali halaman terakses, ubah nilai variabel productId.nya
+    productId = widget.dataProduct!.id;
   }
 
   @override
   Widget build(BuildContext context) {
+
+    print("Product ID : " + productId.toString());
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -30,7 +43,7 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
           style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
         ),
         leading: Container(
-          margin: EdgeInsets.only(left: 10),
+          margin: const EdgeInsets.only(left: 10),
           child: Image.asset(
             'assets/ic-back.png',
             width: 36,
@@ -39,95 +52,100 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.only(top: 54, left: 20, right: 20),
+        margin: const EdgeInsets.only(left: 20, right: 20, top: 57),
         child: ListView(
           children: [
             Text(
-              "Perkiraan Berat Cucian",
+              "Perkiraan berat Cucian",
               style: primaryTextStyle.copyWith(
-                  fontSize: 16, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(
-              height: 6,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             TextFormField(
-              obscureText: true,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                hintText: "Masukkan Berat",
-                hintStyle: primaryTextStyle,
-                suffixIcon: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Text("kg"),
+                suffixIcon: const Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Text("Kg"),
                 ),
+                hintText: "Masukkan Berat",
+                hintStyle: secondaryTextStyle,
                 enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
-                      color: greyColor,
-                    )),
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: greyColor,
+                  ),
+                ),
                 focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
-                      color: greyColor,
-                    )),
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: greyColor,
+                  ),
+                ),
               ),
             ),
             Text(
               "*Tim kami akan menimbang kembali berat cucian",
-              style: secondaryTextStyle,
-            ),
-            SizedBox(
-              height: 12,
+              style: secondaryTextStyle.copyWith(
+                fontStyle: FontStyle.italic,
+              ),
             ),
             Text(
               "Waktu Pengambilan",
               style: primaryTextStyle.copyWith(
-                  fontSize: 16, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(
-              height: 6,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             TextFormField(
-              obscureText: true,
-              keyboardType: TextInputType.datetime,
+              controller: dateInput,
+              //editing controller of this TextField
               decoration: InputDecoration(
-                hintText: "dd/mm/yyyy",
+                hintText: 'dd/mm/yyy',
                 hintStyle: primaryTextStyle,
-                suffixIcon: Icon(Icons.date_range),
+                suffixIcon: const Icon(Icons.date_range),
                 enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
-                      color: greyColor,
-                    )),
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: greyColor,
+                  ),
+                ),
                 focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
-                      color: greyColor,
-                    )),
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: greyColor,
+                  ),
+                ),
               ),
               readOnly: true,
+              //set it true, so that user will not able to edit text
               onTap: () async {
                 DateTime? pickedDate = await showDatePicker(
                     context: context,
                     initialDate: DateTime.now(),
                     firstDate: DateTime(1950),
+                    //DateTime.now() - not to allow to choose before today.
                     lastDate: DateTime(2100));
+
                 if (pickedDate != null) {
+                  // print(pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
                   String formattedDate =
-                      DateFormat('dd-mm-yyyy').format(pickedDate);
+                      DateFormat('dd-MM-yyyy').format(pickedDate);
+                  // print(formattedDate); //formatted date output using intl package =>  2021-03-16
                   setState(() {
-                    dateInput.text = formattedDate;
+                    dateInput.text =
+                        formattedDate; //set output date to TextField value.
                   });
                 } else {}
               },
             ),
-            SizedBox(
-              height: 12,
-            ),
             Text(
               "Pilih Paket",
               style: primaryTextStyle.copyWith(
-                  fontSize: 16, fontWeight: FontWeight.w500),
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             Container(
               decoration: BoxDecoration(
@@ -139,10 +157,12 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
               child: Row(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(left: 20, right: 20),
+                    margin: const EdgeInsets.only(left: 20, right: 20),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment
+                          .center, //agar posisinya rata tengah secara vertical (atas ke bawah)
+                      crossAxisAlignment:
+                          CrossAxisAlignment.start, //agar aligmentny rata kiri
                       children: [
                         Text(
                           "Reguler",
@@ -154,13 +174,14 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
                         Text(
                           "(Lebih Hemat)",
                           style: secondaryTextStyle.copyWith(
-                              fontStyle: FontStyle.italic),
-                        )
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  Spacer(),
-                  Text("IDR 5k"),
+                  const Spacer(),
+                  const Text("IDR 5K"),
                   Checkbox(
                       value: false,
                       onChanged: (value) {
@@ -169,12 +190,14 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             Container(
               decoration: BoxDecoration(
-                border: Border.all(color: blackColor),
+                border: Border.all(
+                  color: blackColor,
+                ),
                 borderRadius: BorderRadius.circular(15),
               ),
               height: 73,
@@ -182,28 +205,31 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
               child: Row(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(left: 20, right: 20),
+                    margin: const EdgeInsets.only(left: 20, right: 20),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment
+                          .center, //agar posisinya rata tengah secara vertical (atas ke bawah)
+                      crossAxisAlignment:
+                          CrossAxisAlignment.start, //agar aligmentny rata kiri
                       children: [
                         Text(
-                          "Express",
+                          "Ekspres",
                           style: primaryTextStyle.copyWith(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
                         Text(
-                          "(langsung jemput tanpa antri)",
+                          "(Langsung jemput tanpa antri)",
                           style: secondaryTextStyle.copyWith(
-                              fontStyle: FontStyle.italic),
-                        )
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  Spacer(),
-                  Text("IDR 10k"),
+                  const Spacer(),
+                  const Text("IDR 10K"),
                   Checkbox(
                       value: false,
                       onChanged: (value) {
@@ -212,67 +238,81 @@ class _InfoCucianPageState extends State<InfoCucianPage> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 16,
+            const SizedBox(
+              height: 22,
             ),
             Text(
-              "Metode Pembayaran ",
+              "Metode Pembayaran",
               style: primaryTextStyle.copyWith(
-                  fontSize: 16, fontWeight: FontWeight.w500),
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             DropdownButtonFormField<String>(
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(
-                        color: greyColor,
-                      )),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(
-                        color: greyColor,
-                      )),
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: greyColor,
+                  ),
                 ),
-                value: metodeBayar,
-                items: <String>['Tunai', 'Transfer']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(
-                      value,
-                      style: primaryTextStyle,
-                    ),
-                  );
-                }).toList(),
-                onChanged: (String? newValue) {
-                  setState(() {
-                    metodeBayar = newValue!;
-                  });
-                }),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: greyColor,
+                  ),
+                ),
+              ),
+              value: metodeBayar,
+              items: <String>['Tunai', 'Transfer']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value,
+                    style: primaryTextStyle,
+                  ),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                setState(() {
+                  metodeBayar = newValue!;
+                });
+              },
+            ),
             Container(
-              margin: EdgeInsets.only(left: 10),
+              margin: const EdgeInsets.only(left: 10),
               child: Text(
                 "*Bayar setelah beres",
                 style: secondaryTextStyle.copyWith(
-                    fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),
+
       bottomNavigationBar: Container(
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 24),
+        margin: const EdgeInsets.only(bottom: 24, left: 20, right: 20),
         width: double.infinity,
         height: 50,
         child: TextButton(
-          onPressed: null,
           style: TextButton.styleFrom(
-              backgroundColor: Color(0xFF4ABF92),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15))),
-          child: Text(
+            backgroundColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+          ),
+          onPressed: () {
+            null;
+          },
+          child: const Text(
             "Lanjut",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+            ),
           ),
         ),
       ),

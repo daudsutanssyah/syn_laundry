@@ -13,7 +13,7 @@ class KonfirmasiPage extends StatelessWidget {
           style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
         ),
         leading: Container(
-          margin: EdgeInsets.only(left: 10),
+          margin: const EdgeInsets.only(left: 10),
           child: Image.asset(
             "assets/ic-back.png",
             width: 36,
@@ -22,10 +22,10 @@ class KonfirmasiPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.only(left: 20, right: 20),
+        margin: const EdgeInsets.only(left: 20, right: 20),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 51,
             ),
             RichText(
@@ -46,7 +46,7 @@ class KonfirmasiPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             RichText(
@@ -67,7 +67,7 @@ class KonfirmasiPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             RichText(
@@ -88,7 +88,7 @@ class KonfirmasiPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             RichText(
@@ -110,7 +110,7 @@ class KonfirmasiPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             RichText(
@@ -131,7 +131,7 @@ class KonfirmasiPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             RichText(
@@ -170,7 +170,7 @@ class KonfirmasiPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             RichText(
@@ -191,7 +191,7 @@ class KonfirmasiPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Container(
@@ -201,7 +201,7 @@ class KonfirmasiPage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Padding(
@@ -213,7 +213,7 @@ class KonfirmasiPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                         left: 67, right: 33, top: 18, bottom: 24),
                     child: Column(
                       children: [
@@ -222,7 +222,7 @@ class KonfirmasiPage extends StatelessWidget {
                           style: primaryTextStyle.copyWith(
                               fontSize: 16, fontWeight: FontWeight.w400),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 18,
                         ),
                         Text(
@@ -241,16 +241,16 @@ class KonfirmasiPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 24),
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 24),
         width: double.infinity,
         height: 50,
         child: TextButton(
           onPressed: null,
           style: TextButton.styleFrom(
-              backgroundColor: Color(0xFF4ABF92),
+              backgroundColor: const Color(0xFF4ABF92),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15))),
-          child: Text(
+          child: const Text(
             "Konfirmasi",
             style: TextStyle(color: Colors.white),
           ),

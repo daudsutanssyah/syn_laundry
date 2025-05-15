@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:syn_laundry/models/product_model.dart';
-import 'package:syn_laundry/pages/notifikasi_page.dart';
+import 'package:get/get.dart';
+import 'package:syn_laundry/models/Product_model.dart';
+import 'package:syn_laundry/pages/info_pesanan_page.dart';
 import 'package:syn_laundry/services/product_services.dart';
 import 'package:syn_laundry/themes/themes.dart';
 import 'package:syn_laundry/widgets/product_widget.dart';
@@ -12,46 +13,46 @@ class BerandaPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        //Baris 1
+        // BARIS 1
         children: [
           Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 25),
+            margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
             child: Row(
               children: [
+                // sisi kiri
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Selamat Datang!",
-                        style: primaryTextStyle.copyWith(
-                            fontSize: 18, fontWeight: FontWeight.w600)),
+                    Text(
+                      "Selamat Datang!",
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                     Text(
                       "Mau dibantu apa hari ini?",
                       style: secondaryTextStyle.copyWith(
-                          fontSize: 16, fontWeight: FontWeight.w600),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ],
                 ),
-                Spacer(), //mengambil sisa space
-                //sisi kanan
-                InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => NotifikasiPage()));
-                    },
-                    child: Icon(Icons.notifications)),
+                const Spacer(), // mengambil sisa space
+                // sisi kanan
+                const Icon(Icons.notifications),
               ],
             ),
           ),
 
-          // baris 2
+          // BARIS 2
           Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
             child: Stack(
-              //widget tumpukan
+              // widget tumpukan
               children: [
-                Image.asset("assets/img-cta.png"),
+                Image.asset('assets/img-cta.png'),
                 Positioned(
                   top: 100,
                   left: 20,
@@ -72,7 +73,7 @@ class BerandaPage extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 18,
                       ),
                       Container(
@@ -86,38 +87,46 @@ class BerandaPage extends StatelessWidget {
                           child: Text(
                             "Ayo Cuci!",
                             style: greenTextStyle.copyWith(
-                                fontSize: 16, fontWeight: FontWeight.w500),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
 
-          // baris 3
+          // BARIS 3
           Container(
-            margin: EdgeInsets.only(top: 18, left: 20),
+            margin: const EdgeInsets.only(top: 18, left: 20),
             child: Text(
               "Layanan Kami",
               style: primaryTextStyle.copyWith(
-                  fontSize: 18, fontWeight: FontWeight.w500),
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
 
-          // baris 4
+          // BARIS 4
           Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 18),
+            margin: const EdgeInsets.only(left: 20, right: 20, top: 18),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: FutureBuilder<List<ProductModel>>(
                   future: ProductServices.getProductList(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return CircularProgressIndicator(
-                        color: primaryColor,
+                      return Container(
+                        margin: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.40),
+                        child: CircularProgressIndicator(
+                          color: primaryColor,
+                        ),
                       );
                     } else if (snapshot.hasData) {
                       return Row(
@@ -125,12 +134,18 @@ class BerandaPage extends StatelessWidget {
                           ...snapshot.data!.map((dataProduct) {
                             // mengambil index dari perulangan map
                             var index = snapshot.data!.indexOf(dataProduct);
+
                             return Container(
-                              margin: EdgeInsets.only(
-                                left: index > 0 ? 20 : 0
-                              ),
-                              child: ProductWidget(
-                                productModel: dataProduct,
+                              margin: EdgeInsets.only(left: index > 0 ? 12 : 0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(InfoPesananPage(
+                                    dataProduct: dataProduct,
+                                  ));
+                                },
+                                child: ProductWidget(
+                                  productModel: dataProduct,
+                                ),
                               ),
                             );
                           })
@@ -143,12 +158,12 @@ class BerandaPage extends StatelessWidget {
             ),
           ),
 
-          // baris 5
+          // BARIS 5
           Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 23),
+            margin: const EdgeInsets.only(left: 20, right: 20, top: 23),
             child: Stack(
               children: [
-                Image.asset("assets/img-drycleaning.png"),
+                Image.asset('assets/img-drycleaning.png'),
                 Positioned(
                   bottom: 10,
                   left: 10,
@@ -162,17 +177,17 @@ class BerandaPage extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Text(
-                        "IDR 10000 / Kg",
-                        style: whiteTextStyle.copyWith(
-                            fontSize: 20, fontWeight: FontWeight.w500),
-                      ),
+                      Text("IDR 10000 / Kg",
+                          style: whiteTextStyle.copyWith(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                          )),
                     ],
                   ),
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           // baris 1 : IMAGE
           Image.asset('assets/img-login.png'),
-          SizedBox(
+          const SizedBox(
             height: 37,
           ),
           // baris 2 : TEXT
@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           // baris 3 : KOLOM INPUT
           Container(
-            margin: EdgeInsets.only(top: 60, left: 20, right: 20),
+            margin: const EdgeInsets.only(top: 60, left: 20, right: 20),
             child: Form(
               key: formKey,
               child: Column(
@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 37,
                   ),
                   Obx(() => TextFormField(
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Align(
@@ -119,15 +119,15 @@ class _LoginPageState extends State<LoginPage> {
                           fontSize: 16,
                         ),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 37,
                   ),
-                  Obx(() => Container(
+                  Obx(() => SizedBox(
                         height: 50,
                         width: double.infinity,
                         child: TextButton(
                           style: TextButton.styleFrom(
-                            backgroundColor: Color(0xFF4ABF92),
+                            backgroundColor: const Color(0xFF4ABF92),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
@@ -143,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                               ? CircularProgressIndicator(
                                   color: whiteColor,
                                 )
-                              : Text(
+                              : const Text(
                                   "Masuk",
                                   style: TextStyle(
                                     color: Colors.white,
@@ -155,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           // baris 4 : BELUM PUNYA AKUN?
@@ -166,13 +166,13 @@ class _LoginPageState extends State<LoginPage> {
                 "Belum punya akun?",
                 style: secondaryTextStyle.copyWith(fontSize: 16),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 2,
               ),
               InkWell(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => RegisterPage()));
+                      MaterialPageRoute(builder: (context) => const RegisterPage()));
                 },
                 child: Text(
                   "Daftar",
@@ -180,6 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 16,
                   ),
                 ),
+                
               ),
             ],
           ),

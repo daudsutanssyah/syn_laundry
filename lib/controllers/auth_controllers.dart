@@ -39,7 +39,7 @@ class AuthController extends GetxController {
           .post(url, body: {"email": email.text, "password": password.text});
 
       // cetak hasil response
-      print(response.body);
+      // print(response.body);
 
       // ambil response body dari json yg didapatkan
       var responseDecode = json.decode(response.body);
@@ -56,7 +56,7 @@ class AuthController extends GetxController {
         SpUtil.putString("telepon", responseDecode["data"]["telepon"]);
         loading.value = false;
         // arahkan ke halaman LandingPage
-        Get.offAll(LandingPage());
+        Get.offAll(const LandingPage());
       } else {
         loading.value = false;
         // jika gagal
@@ -106,7 +106,7 @@ class AuthController extends GetxController {
         SpUtil.putString("name", responseDecode["data"]["name"]);
         SpUtil.putString("email", responseDecode["data"]["email"]);
         SpUtil.putString("telepon", responseDecode["data"]["telepon"]);
-        Get.offAll(LandingPage());
+        Get.offAll(const LandingPage());
       } else {
         // jika gagal
         Get.snackbar(
@@ -149,7 +149,7 @@ class AuthController extends GetxController {
         SpUtil.remove("email");
         SpUtil.remove("telepon");
         // arahkan ke halaman SplashPage
-        Get.offAll(SplashPage());
+        Get.offAll(const SplashPage());
       } else {
         // jika gagal
         Get.snackbar(

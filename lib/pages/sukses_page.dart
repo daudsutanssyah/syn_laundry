@@ -28,7 +28,7 @@ class SuksesPage extends StatelessWidget {
                   style: primaryTextStyle.copyWith(
                       fontSize: 24, fontWeight: FontWeight.w500),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Text(
@@ -41,20 +41,20 @@ class SuksesPage extends StatelessWidget {
                   style: secondaryTextStyle.copyWith(
                       fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Container(
                   height: 50,
                   width: double.infinity,
-                  margin: EdgeInsets.only(left: 20, right: 20),
+                  margin: const EdgeInsets.only(left: 20, right: 20),
                   child: TextButton(
                     onPressed: null,
                     style: TextButton.styleFrom(
-                        backgroundColor: Color(0xFF4ABF92),
+                        backgroundColor: const Color(0xFF4ABF92),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15))),
-                    child: Text(
+                    child: const Text(
                       "Cek Pesanan",
                       style: TextStyle(color: Colors.white),
                     ),

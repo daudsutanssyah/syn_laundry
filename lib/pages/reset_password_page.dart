@@ -18,7 +18,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
         ),
         leading: Container(
-          margin: EdgeInsets.only(left: 10),
+          margin: const EdgeInsets.only(left: 10),
           child: Image.asset(
             "assets/ic-back.png",
             width: 36,
@@ -27,7 +27,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.only(top: 24, left: 20, right: 20),
+        margin: const EdgeInsets.only(top: 24, left: 20, right: 20),
         child: ListView(
           children: [
             TextFormField(
@@ -52,7 +52,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     hintStyle: secondaryTextStyle,
                   ),
                 ),
-                SizedBox(height: 24,),
+                const SizedBox(height: 24,),
                 TextFormField(
                   obscureText: true,
                   keyboardType: TextInputType.text,
@@ -75,7 +75,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     hintStyle: secondaryTextStyle,
                   ),
                 ),
-                SizedBox(height: 24,),
+                const SizedBox(height: 24,),
                 TextFormField(
                   obscureText: true,
                   keyboardType: TextInputType.text,
@@ -102,16 +102,16 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         ),
       ),
             bottomNavigationBar: Container(
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 24),
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 24),
         width: double.infinity,
         height: 50,
         child: TextButton(
           onPressed: null,
           style: TextButton.styleFrom(
-              backgroundColor: Color(0xFF4ABF92),
+              backgroundColor: const Color(0xFF4ABF92),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15))),
-          child: Text(
+          child: const Text(
             "Simpan Perubahan",
             style: TextStyle(color: Colors.white),
           ),

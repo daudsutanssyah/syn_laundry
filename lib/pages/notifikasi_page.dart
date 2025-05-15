@@ -13,7 +13,7 @@ class NotifikasiPage extends StatelessWidget {
           style: primaryTextStyle.copyWith(fontWeight: FontWeight.w500),
         ),
         leading: Container(
-          margin: EdgeInsets.only(left: 10),
+          margin: const EdgeInsets.only(left: 10),
           child: Image.asset(
             'assets/ic-back.png',
             width: 36,
@@ -22,7 +22,7 @@ class NotifikasiPage extends StatelessWidget {
         ),
         actions: [
           Container(
-            margin: EdgeInsets.only(right: 10),
+            margin: const EdgeInsets.only(right: 10),
             child: Text(
               "Tandai Terbaca",
               style: greenTextStyle.copyWith(
@@ -35,7 +35,7 @@ class NotifikasiPage extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+            margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
             decoration: BoxDecoration(
               color: secondaryColor,
               borderRadius: BorderRadius.circular(10),
@@ -59,7 +59,7 @@ class NotifikasiPage extends StatelessWidget {
                       )
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Image.asset(
                     'assets/img-sukses.png',
                     width: 21,
@@ -71,7 +71,7 @@ class NotifikasiPage extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
-            margin: EdgeInsets.only(top: 25, left: 20, right: 20),
+            margin: const EdgeInsets.only(top: 25, left: 20, right: 20),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(

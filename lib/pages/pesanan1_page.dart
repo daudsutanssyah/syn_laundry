@@ -12,7 +12,7 @@ class Pesanan1Page extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset("assets/img-empty.png"),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Text(
